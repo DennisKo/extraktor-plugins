@@ -1,23 +1,90 @@
 {
   "name": "extraktor",
-  "version": "0.1.0+codex.20261001194216",
+  "version": "0.2.0",
   "description": "Read, verify, and compare public web sources with Extraktor.",
   "author": {
-    "name": "Extraktor"
+    "name": "Extraktor",
+    "url": "https://extraktor.app"
   },
+  "homepage": "https://extraktor.app",
+  "repository": "https://github.com/DennisKo/extraktor-plugins",
+  "license": "MIT",
   "skills": "./skills/",
   "interface": {
     "displayName": "Extraktor",
-    "shortDescription": "Read and compare public web sources.",
-    "longDescription": "Connect to Extraktor with OAuth. Read page text, retain source evidence, and compare facts from several pages.",
+    "shortDescription": "Read and search the live web",
+    "longDescription": "Extraktor reads live web pages and documents (PDF, DOCX, CSV) as clean Markdown, and searches the web. Give it a URL to get the full page text, the facts that you ask for, contact details, the messaging, an SEO audit, the design system or a full-page screenshot. Give it a question to find the best pages first. Each result has the source URL, so the answer can cite it. The read-source skill checks a claim against the page. The compare-sources skill compares facts from several pages, with a citation for each fact.",
     "developerName": "Extraktor",
     "category": "Productivity",
     "capabilities": ["Read"],
     "websiteURL": "https://extraktor.app",
+    "supportURL": "https://extraktor.app/support",
+    "privacyPolicyURL": "https://extraktor.app/privacy",
+    "termsOfServiceURL": "https://extraktor.app/terms",
     "defaultPrompt": [
-      "Use $extraktor:read-source to read this page and check its claims against the source.",
-      "Use $extraktor:compare-sources to compare these pages and cite the evidence."
-    ]
+      "Read https://example.com and tell me what the page is for.",
+      "Find the pricing page of Linear and list the plans.",
+      "Compare the headlines of stripe.com and adyen.com."
+    ],
+    "brandColor": "#000000",
+    "brandColorDark": "#FFFFFF",
+    "composerIcon": "./assets/icon.svg",
+    "composerIconDark": "./assets/icon-dark.svg",
+    "logo": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read one known page.",
+              "prompt": "Read https://example.com and tell me in one sentence what the page is for.",
+              "tools_triggered": ["extract"],
+              "expected_behavior": "Calls extract one time with the URL. Says that the page is a placeholder domain for documentation examples, and cites https://example.com/."
+            },
+            {
+              "description": "Get one fact from a long documentation page.",
+              "prompt": "What is the CPU time limit per request for paid Cloudflare Workers? Use https://developers.cloudflare.com/workers/platform/limits/",
+              "tools_triggered": ["extract"],
+              "expected_behavior": "Calls extract with the URL (and optionally find). Answers with the CPU time limit that the page states, and cites the page."
+            },
+            {
+              "description": "Find a page first, then read it.",
+              "prompt": "Find the official pricing page of Linear and list its plans.",
+              "tools_triggered": ["search", "extract"],
+              "expected_behavior": "Calls search one time, then extract on the linear.app pricing link. Lists the plan names from the page and cites it."
+            },
+            {
+              "description": "Compare two pages.",
+              "prompt": "Compare the main headlines of https://stripe.com and https://www.adyen.com.",
+              "tools_triggered": ["extract"],
+              "expected_behavior": "Calls extract for both URLs. Gives the headline of each site in the site's own words, with a citation for each."
+            },
+            {
+              "description": "Take a screenshot.",
+              "prompt": "Take a full-page screenshot of https://example.com.",
+              "tools_triggered": ["extract"],
+              "expected_behavior": "Calls extract with the URL and the screenshot output. Shows or links the screenshot of the Example Domain page."
+            }
+          ],
+          "negative": [
+            {
+              "description": "A creative writing task with no web source.",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "Arithmetic that needs no web data.",
+              "prompt": "What is 17 times 23?"
+            },
+            {
+              "description": "Text that the user already supplied.",
+              "prompt": "Summarize this text in one sentence: The quick brown fox jumps over the lazy dog because the dog was asleep in the sun."
+            }
+          ]
+        }
+      }
+    }
   },
   "mcpServers": "./.mcp.json"
 }

@@ -1,6 +1,6 @@
 # Extraktor plugins
 
-[Extraktor](https://extraktor.app) reads live web pages as Markdown and searches the web for AI agents. The plugin adds the Extraktor MCP server (`https://extraktor.app/mcp`) and two skills to Claude Code and Codex. The agent opens a sign-in page the first time it uses Extraktor. Extraktor needs a Pro plan.
+[Extraktor](https://extraktor.app) reads live web pages as Markdown and searches the web for AI agents. The plugin adds the Extraktor MCP server (`https://extraktor.app/mcp`) and two skills to Claude Code and Codex. The agent opens a sign-in page the first time it uses Extraktor. Each account gets 25 free credits each month.
 
 ## Claude Code
 
