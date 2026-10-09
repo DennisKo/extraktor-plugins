@@ -1,0 +1,19 @@
+{
+  "name": "extraktor",
+  "version": "0.1.0",
+  "description": "Read, verify, and compare public web sources with Extraktor.",
+  "author": {
+    "name": "Extraktor",
+    "url": "https://extraktor.app"
+  },
+  "homepage": "https://extraktor.app",
+  "keywords": [
+    "web",
+    "extraction",
+    "search",
+    "markdown",
+    "mcp"
+  ],
+  "repository": "https://github.com/DennisKo/extraktor-plugins",
+  "license": "MIT"
+}

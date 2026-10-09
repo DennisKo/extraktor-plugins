@@ -1,0 +1,13 @@
+interface:
+  display_name: "Compare web sources"
+  short_description: "Compare facts and cite each web source"
+  default_prompt: "Use $compare-sources to compare these pages and cite the evidence."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "extraktor"
+      description: "Read and search public web sources with Extraktor"
+      transport: "streamable_http"
+      url: "https://extraktor.app/mcp"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "extraktor": {
+      "type": "http",
+      "url": "https://extraktor.app/mcp"
+    }
+  }
+}

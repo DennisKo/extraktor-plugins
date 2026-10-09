@@ -1,0 +1,23 @@
+{
+  "name": "extraktor",
+  "version": "0.1.0+codex.20261001194216",
+  "description": "Read, verify, and compare public web sources with Extraktor.",
+  "author": {
+    "name": "Extraktor"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Extraktor",
+    "shortDescription": "Read and compare public web sources.",
+    "longDescription": "Connect to Extraktor with OAuth. Read page text, retain source evidence, and compare facts from several pages.",
+    "developerName": "Extraktor",
+    "category": "Productivity",
+    "capabilities": ["Read"],
+    "websiteURL": "https://extraktor.app",
+    "defaultPrompt": [
+      "Use $extraktor:read-source to read this page and check its claims against the source.",
+      "Use $extraktor:compare-sources to compare these pages and cite the evidence."
+    ]
+  },
+  "mcpServers": "./.mcp.json"
+}

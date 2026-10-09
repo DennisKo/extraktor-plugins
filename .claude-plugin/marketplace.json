@@ -1,0 +1,15 @@
+{
+  "name": "extraktor",
+  "description": "Extraktor plugins: web extraction and search for agents.",
+  "owner": {
+    "name": "Extraktor",
+    "url": "https://extraktor.app"
+  },
+  "plugins": [
+    {
+      "name": "extraktor",
+      "source": "./plugins/extraktor",
+      "description": "Read, verify, and compare public web sources with Extraktor."
+    }
+  ]
+}
