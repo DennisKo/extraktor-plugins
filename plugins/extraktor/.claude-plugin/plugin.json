@@ -7,13 +7,7 @@
     "url": "https://extraktor.app"
   },
   "homepage": "https://extraktor.app",
-  "keywords": [
-    "web",
-    "extraction",
-    "search",
-    "markdown",
-    "mcp"
-  ],
+  "keywords": ["web", "extraction", "search", "markdown", "mcp"],
   "repository": "https://github.com/DennisKo/extraktor-plugins",
   "license": "MIT"
 }
